@@ -1,24 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vapi Test</title>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>NoGigiddy AI Receptionist</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      background: #f5f7fb;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 650px;
+
+      padding: 50px 30px;
+
+      text-align: center;
+
+      background: white;
+
+      border-radius: 20px;
+
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: bold;
+
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      margin: 0 0 15px;
+
+      font-size: 36px;
+    }
+
+    .description {
+      max-width: 500px;
+
+      margin: 0 auto 30px;
+
+      color: #666;
+
+      line-height: 1.6;
+    }
+
+    .notice {
+      margin-top: 25px;
+
+      font-size: 13px;
+
+      color: #888;
+    }
+  </style>
 </head>
 
 <body>
 
-  <h1>Vapi Voice Test</h1>
+  <main class="container">
 
-  <p>Talk with AI</p>
+    <div class="logo">
+      NoGigiddy
+    </div>
 
-  <p>Click the microphone to start</p>
+    <h1>
+      AI Virtual Receptionist
+    </h1>
 
-  <vapi-widget
-    public-key="875f62c4-3348-4076-b95e-c143f457d7bc"
-    assistant-id="57bc68f2-d89e-4833-ae10-00f5943b0b9a"
-    mode="voice">
-  </vapi-widget>
+    <p class="description">
+      Talk with our AI virtual receptionist and experience
+      automated call handling.
+    </p>
+
+    <vapi-widget
+      public-key=""
+      assistant-id=""
+      mode="voice">
+    </vapi-widget>
+
+    <p class="notice">
+      Click the button above to start a conversation.
+    </p>
+
+  </main>
+
+  <script type="module">
+
+    const publicKey =
+      import.meta.env.VITE_VAPI_PUBLIC_KEY;
+
+    const assistantId =
+      import.meta.env.VITE_VAPI_ASSISTANT_ID;
+
+    const widget =
+      document.querySelector("vapi-widget");
+
+    widget.setAttribute(
+      "public-key",
+      publicKey
+    );
+
+    widget.setAttribute(
+      "assistant-id",
+      assistantId
+    );
+
+  </script>
 
   <script
     src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js"
@@ -27,4 +136,5 @@
   </script>
 
 </body>
+
 </html>
